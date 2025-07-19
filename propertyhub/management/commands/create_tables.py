@@ -9,7 +9,7 @@ class Command(BaseCommand):
             cursor.execute("""
                 CREATE TABLE IF NOT EXISTS users (
                     user_id SERIAL PRIMARY KEY,
-                    name VARCHAR(255),
+                    username VARCHAR(255),
                     email VARCHAR(255),
                     phone_number VARCHAR(20),
                     whatsapp VARCHAR(20),
@@ -19,7 +19,7 @@ class Command(BaseCommand):
                     joined_date TIMESTAMP,
                     ratings FLOAT,
                     bio TEXT,
-                    password VARCHAR(128),      
+                    password VARCHAR(128)      
                 );
 
                 CREATE TABLE IF NOT EXISTS properties (
