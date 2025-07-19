@@ -18,7 +18,8 @@ class Command(BaseCommand):
                     user_type VARCHAR(50),
                     joined_date TIMESTAMP,
                     ratings FLOAT,
-                    bio TEXT
+                    bio TEXT,
+                    password VARCHAR(128),      
                 );
 
                 CREATE TABLE IF NOT EXISTS properties (

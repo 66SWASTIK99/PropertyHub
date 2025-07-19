@@ -67,7 +67,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'PropertyHub.wsgi.application'
+WSGI_APPLICATION = 'PropertyHubProject.wsgi.application'
 
 
 # Database
