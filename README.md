@@ -10,7 +10,7 @@
 - 📱 Frontend: Flutter
 - 🗄️ Database: PostgreSQL
 - ☁️ API: RESTful endpoints
-- 🔒 Auth: Token or Session-based (TBD)
+<!-- - 🔒 Auth: Token or Session-based (TBD)-->
 
 ---
 
