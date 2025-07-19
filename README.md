@@ -24,9 +24,52 @@
 
 ---
 
-## 🏗️ Project Structure
+<!--## 🏗️ Project Structure
 
 ```bash
+
+├── PropertyHubProject/        
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── wsgi.py
+│   └── asgi.py
+│
+├── users/                     
+│   ├── migrations/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── views.py               
+│   └── urls.py                
+├── propertyhub
+│   │   admin.py
+    │   apps.py
+    │   models.py
+    │   tests.py
+    │   views.py
+    │   __init__.py
+    │
+    ├───management
+    │   └───commands
+    │       │   create_tables.py
+    │       │
+    │       └───__pycache__
+    │               create_tables.cpython-313.pyc
+    │
+    ├───migrations
+    │   │   __init__.py
+    │   │
+    │   └───__pycache__
+│
+├── manage.py
+├── db.sqlite3 
+├── Pipfile / Pipfile.lock
+└── README.md
+
+
 PropertyHubProject/
 ├── propertyhub/          
 ├── manage.py
@@ -34,3 +77,4 @@ PropertyHubProject/
 ├── requirements.txt
 ├── Pipfile / Pipfile.lock
 └── README.md
+-->
