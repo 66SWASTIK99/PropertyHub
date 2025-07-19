@@ -28,7 +28,7 @@
 
 ```bash
 PropertyHubProject/
-├── propertyhub/          # Django app (models, views, serializers, etc.)
+├── propertyhub/          
 ├── manage.py
 ├── db.sqlite3 (if using SQLite)
 ├── requirements.txt
