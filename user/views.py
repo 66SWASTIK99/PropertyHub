@@ -33,7 +33,7 @@ class UserLogInAPIView(APIView):
             return Response({"error": "All fields are required."}, status=400)
       
         data = request.data
-        result = login_user_raw(data.get('email'), data.get('password'))
+        result = login_user_raw(data)
         return Response(result['body'], status=result['status'])
     
 class ForgetpwAPI(APIView):
