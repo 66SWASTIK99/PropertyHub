@@ -26,13 +26,14 @@ class Command(BaseCommand):
                     property_id SERIAL PRIMARY KEY,
                     title VARCHAR(255),
                     property_type VARCHAR(30),
-                    location VARCHAR(150)
+                    contact_number VARCHAR(10),
+                    location VARCHAR(150),
                     pincode VARCHAR(10),
                     monthly_rent DECIMAL(10, 2),
                     deposit_amount DECIMAL(10, 2),
                     photos TEXT,
                     property_description TEXT,
-                    listed_date_time DATETIME,
+                    listed_date_time TIMESTAMP,
                     listed_by_user_id INT,
                     FOREIGN KEY (listed_by_user_id) REFERENCES users(user_id)
                 );
@@ -60,6 +61,16 @@ class Command(BaseCommand):
                     date TIMESTAMP,
                     FOREIGN KEY (reviewer_user_id) REFERENCES users(user_id),
                     FOREIGN KEY (reviewed_user_id) REFERENCES users(user_id)
+                );
+                           
+                CREATE TABLE refresh_tokens (
+                    id SERIAL PRIMARY KEY,
+                    user_id INTEGER NOT NULL,
+                    token_hash CHAR(64) NOT NULL,
+                    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                    expires_at TIMESTAMP NOT NULL,
+                    revoked BOOLEAN NOT NULL DEFAULT FALSE,
+                    FOREIGN KEY (user_id) REFERENCES users(user_id)
                 );
             """)
 
