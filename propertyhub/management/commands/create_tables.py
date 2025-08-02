@@ -25,15 +25,23 @@ class Command(BaseCommand):
                 CREATE TABLE IF NOT EXISTS properties (
                     property_id SERIAL PRIMARY KEY,
                     title VARCHAR(255),
-                    property_type VARCHAR(30),
-                    location VARCHAR(150)
+                    property_type VARCHAR(100),
+                    address TEXT,
+                    city VARCHAR(100),
+                    area VARCHAR(100),
                     pincode VARCHAR(10),
                     monthly_rent DECIMAL(10, 2),
                     deposit_amount DECIMAL(10, 2),
+                    available_from DATE,
+                    furnished_status BOOLEAN,
+                    amenities TEXT,
                     photos TEXT,
                     property_description TEXT,
-                    listed_date_time DATETIME,
+                    number_of_bedrooms INT,
+                    number_of_bathrooms INT,
+                    available_for VARCHAR(100),
                     listed_by_user_id INT,
+                    listed_date TIMESTAMP,
                     FOREIGN KEY (listed_by_user_id) REFERENCES users(user_id)
                 );
 
@@ -63,19 +71,4 @@ class Command(BaseCommand):
                 );
             """)
 
-        self.stdout.write(self.style.SUCCESS("All tables formed successfully using raw SQL."))
-
-
-#* property_type VARCHAR(30),
-#* location
-#* monthly_rent DECIMAL(10, 2),
-#* contact number,
-# deposit_amount DECIMAL(10, 2),
-# available_from DATE,
-# amenities TEXT,
-#* photos TEXT,
-# property_description TEXT,
-# number_of_bedrooms INT,
-# number_of_bathrooms INT,
-#* date TIMESTAMP
-#* FOREIGN KEY (user_id) REFERENCES users(user_id)
+        self.stdout.write(self.style.SUCCESS("All tables created successfully using raw SQL."))
