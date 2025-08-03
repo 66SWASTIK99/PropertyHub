@@ -4,14 +4,14 @@ from rest_framework import request
 from django.db import connection
 from .services import add_new_property_raw
 from users.jwt import TokenManager
-import logging
+from users.auth import JWTAuthentication
 
 class AddNewPropertyAPIView(APIView):
     def post(self, request):
-        auth_header = request.META.get('HTTP_AUTHORIZATION')
+        #auth_header = request.META.get('HTTP_AUTHORIZATION')
         
-        token_manager = TokenManager()
-        token_payload = token_manager.verify_token(auth_header)
+        jwt = JWTAuthentication()
+        token_payload = jwt.authenticate(request)
         
         if token_payload is None:
             # Token is invalid or expired
@@ -21,6 +21,3 @@ class AddNewPropertyAPIView(APIView):
         user_id = token_payload.get("user_id")
 
         return add_new_property_raw(request.data, user_id)
-from django.shortcuts import render
-
-# Create your views here.

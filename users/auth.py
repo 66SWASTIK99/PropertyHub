@@ -12,8 +12,6 @@ class JWTAuthentication(BaseAuthentication):
     def authenticate(self, request):
         auth_header = request.headers.get('Authorization')
 
-        token_manager = TokenManager()
-        
         #extracting token
         #checking "bearer "
         if not auth_header or not auth_header.startswith('Bearer '):
@@ -22,6 +20,7 @@ class JWTAuthentication(BaseAuthentication):
         # removing "bearer "
         token = auth_header[7:]
 
+        token_manager = TokenManager()
         try:
             user = token_manager.verify_token(token)
         except Exception as e:
@@ -31,4 +30,4 @@ class JWTAuthentication(BaseAuthentication):
             raise exceptions.AuthenticationFailed('User not found or token invalid')
 
         # DRF expects a (user, auth) tuple
-        return (user, None)
+        return (user)

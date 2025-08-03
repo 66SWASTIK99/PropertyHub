@@ -21,7 +21,7 @@ def user_signup_view(request):
     return signup_user_raw(request.data)
 
 
-@api_view(['POST'])
+@api_view(['GET'])
 @permission_classes([AllowAny])       
 def user_login_view(request):
     email=request.data.get('email')

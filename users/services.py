@@ -11,7 +11,7 @@ def login_user_raw(user_data):
     password  = user_data.get("password")
 
     with connection.cursor() as cursor:
-        cursor.execute("SELECT user_id, password FROM users WHERE email = %s", [email])
+        cursor.execute("SELECT user_id, password FROM users WHERE email = %s", (email,))
         user = cursor.fetchone()
 
     if not user:
