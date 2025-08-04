@@ -53,14 +53,7 @@ class TokenManager:
                 """, (user_id, token_hash, expires_at))
         connection.commit()
     
-    def verify_token(self, auth_header, token_type="access"):
-        #extracting token
-        #checking "bearer "
-        if not auth_header or not auth_header.startswith('Bearer '):
-            return None
-
-        # removing "bearer "
-        token = auth_header[7:]
+    def verify_token(self, token, token_type="access"):
         
         # decoding token
         try:
